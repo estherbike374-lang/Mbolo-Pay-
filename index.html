@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Money - Simulateur</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h2>Your Money</h2>
+      <p class="subtitle">Simulateur de transfert Gabon ➔ Maroc</p>
+    </div>
+
+    <div class="input-group">
+      <label for="amount">Montant envoyé (FCFA)</label>
+      <div class="input-wrapper">
+        <input type="number" id="amount" value="280000">
+        <span class="currency-tag">FCFA</span>
+      </div>
+    </div>
+
+    <div class="details">
+      <h3>Détail de l'opération</h3>
+      <div class="row">
+        <span>Montant envoyé</span>
+        <span id="display-amount">280 000 FCFA</span>
+      </div>
+      <div class="row fee">
+        <span>Frais (3%)</span>
+        <span id="display-fee">-8 400 FCFA</span>
+      </div>
+      <hr>
+      <div class="row total">
+        <span>Montant net</span>
+        <span id="display-net">271 600 FCFA</span>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
