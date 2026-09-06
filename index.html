@@ -4,22 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Money - Simulateur</title>
-  <link rel="stylesheet" href="style.css?v=2">
-
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
 <body>
   <div class="card">
-    <!-- En-tête avec logo -->
     <div class="header">
       <div class="logo">
         <span>YOUR MONEY</span>
       </div>
       <div class="header-text">
         <h2>Your Money</h2>
-        <p class="subtitle" id="sub-title">Simulateur de transfert Gabon ➔ Maroc</p>
+        <p class="subtitle" id="sub-title">Simulateur Gabon ➔ Maroc</p>
       </div>
     </div>
 
-    <!-- Sélecteur de pays -->
     <div class="country-selector">
       <div class="country-box">
         <span class="flag" id="from-flag">🇬🇦</span>
@@ -38,17 +36,15 @@
       </div>
     </div>
 
-    <!-- Onglets J'envoie / Je veux recevoir -->
     <div class="mode-tabs">
       <button type="button" class="tab active" id="tab-send">J'envoie</button>
       <button type="button" class="tab" id="tab-receive">Je veux recevoir</button>
     </div>
 
-    <!-- Champ de saisie avec cadre rouge -->
     <div class="input-group">
       <label for="amount" id="amount-label">Montant envoyé (FCFA)</label>
       <div class="input-wrapper red-border">
-        <input type="number" id="amount" value="280000">
+        <input type="number" id="amount" value="26000">
         <div class="currency-tag">
           <span id="input-flag">🇬🇦</span> <span id="input-currency">FCFA</span>
         </div>
@@ -57,24 +53,26 @@
 
     <p class="info-note" id="info-note">Les frais sont déduits du montant envoyé.</p>
 
-    <!-- Détail de l'opération -->
     <div class="details">
       <h3>📋 Détail de l'opération</h3>
       <div class="row">
         <span><span id="flag-send">🇬🇦</span> Montant envoyé</span>
-        <span id="display-amount">280 000 FCFA</span>
+        <span id="display-amount">26 000 FCFA</span>
       </div>
       <div class="row fee">
         <span>Frais (3%)</span>
-        <span id="display-fee">-8 400 FCFA</span>
+        <span id="display-fee">-780 FCFA</span>
       </div>
       <div class="row total">
         <span><span id="flag-net">🇬🇦</span> Montant net</span>
-        <span id="display-net">271 600 FCFA</span>
+        <span id="display-net">25 220 FCFA</span>
       </div>
-      <div class="row total mad">
-        <span><span id="flag-receive">🇲🇦</span> Montant reçu</span>
-        <span id="display-converted">4 526,67 MAD</span>
+      
+      <hr>
+
+      <div class="row total converted-box">
+        <span><span id="flag-receive">🇲🇦</span> Le destinataire reçoit</span>
+        <strong id="display-converted">420,33 DH</strong>
       </div>
     </div>
   </div>
