@@ -214,3 +214,15 @@ body {
 .row.total.mad {
   color: #c62828;
 }
+.converted-box {
+  background: #e8f5e9;
+  padding: 12px;
+  border-radius: 12px;
+  color: #2e7d32;
+  margin-top: 10px;
+}
+
+.converted-box #display-converted {
+  font-size: 18px;
+  color: #2e7d32;
+}
