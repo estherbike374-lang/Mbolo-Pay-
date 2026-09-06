@@ -23,8 +23,8 @@ const toFlag = document.getElementById('to-flag');
 const fromCountry = document.getElementById('from-country');
 const toCountry = document.getElementById('to-country');
 
-const FEE_RATE = 0.03;
-const EXCHANGE_RATE = 60;
+const FEE_RATE = 0.03;       // Frais de 3%
+const EXCHANGE_RATE = 60;     // Taux : 1 DH = 60 FCFA
 
 let currentMode = 'send';
 let direction = 'GA_MA';
@@ -36,8 +36,8 @@ function calculate() {
   let netSendCurrency = 0;
   let convertedAmount = 0;
 
-  const sendCurrency = direction === 'GA_MA' ? 'FCFA' : 'MAD';
-  const receiveCurrency = direction === 'GA_MA' ? 'MAD' : 'FCFA';
+  const sendCurrency = direction === 'GA_MA' ? 'FCFA' : 'DH';
+  const receiveCurrency = direction === 'GA_MA' ? 'DH' : 'FCFA';
 
   if (currentMode === 'send') {
     sendAmount = inputVal;
@@ -55,17 +55,19 @@ function calculate() {
     convertedAmount = netSendCurrency * EXCHANGE_RATE;
   }
 
-  const decimalsSend = sendCurrency === 'MAD' ? 2 : 0;
-  const decimalsReceive = receiveCurrency === 'MAD' ? 2 : 0;
+  const decimalsSend = sendCurrency === 'DH' ? 2 : 0;
+  const decimalsReceive = receiveCurrency === 'DH' ? 2 : 0;
 
   displayAmount.textContent = `${sendAmount.toLocaleString('fr-FR', { minimumFractionDigits: decimalsSend, maximumFractionDigits: decimalsSend })} ${sendCurrency}`;
   displayFee.textContent = `-${fee.toLocaleString('fr-FR', { minimumFractionDigits: decimalsSend, maximumFractionDigits: decimalsSend })} ${sendCurrency}`;
   displayNet.textContent = `${netSendCurrency.toLocaleString('fr-FR', { minimumFractionDigits: decimalsSend, maximumFractionDigits: decimalsSend })} ${sendCurrency}`;
+  
+  // Affichage en DH (Dirhams)
   displayConverted.textContent = `${convertedAmount.toLocaleString('fr-FR', { minimumFractionDigits: decimalsReceive, maximumFractionDigits: decimalsReceive })} ${receiveCurrency}`;
 }
 
 function updateUI() {
-  const sendCurrency = direction === 'GA_MA' ? 'FCFA' : 'MAD';
+  const sendCurrency = direction === 'GA_MA' ? 'FCFA' : 'DH';
   const sendFlagEmoji = direction === 'GA_MA' ? '🇬🇦' : '🇲🇦';
   const receiveFlagEmoji = direction === 'GA_MA' ? '🇲🇦' : '🇬🇦';
 
@@ -102,10 +104,10 @@ function updateUI() {
 
 swapBtn.addEventListener('click', () => {
   direction = direction === 'GA_MA' ? 'MA_GA' : 'GA_MA';
-  if (direction === 'MA_GA' && amountInput.value == 280000) {
-    amountInput.value = 4500;
-  } else if (direction === 'GA_MA' && amountInput.value == 4500) {
-    amountInput.value = 280000;
+  if (direction === 'MA_GA' && amountInput.value == 26000) {
+    amountInput.value = 400;
+  } else if (direction === 'GA_MA' && amountInput.value == 400) {
+    amountInput.value = 26000;
   }
   updateUI();
 });
