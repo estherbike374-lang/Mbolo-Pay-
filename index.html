@@ -13,13 +13,40 @@
       <p class="subtitle">Simulateur de transfert Gabon ➔ Maroc</p>
     </div>
 
+    <!-- Sélecteur de pays -->
+    <div class="country-selector">
+      <div class="country-box">
+        <span class="flag">🇬🇦</span>
+        <div class="country-info">
+          <span class="label">De</span>
+          <strong>Gabon</strong>
+        </div>
+      </div>
+      <div class="swap-icon">⇆</div>
+      <div class="country-box">
+        <span class="flag">🇲🇦</span>
+        <div class="country-info">
+          <span class="label">Vers</span>
+          <strong>Maroc</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mode d'envoi / réception -->
+    <div class="mode-tabs">
+      <button type="button" class="tab active" id="tab-send">J'envoie</button>
+      <button type="button" class="tab" id="tab-receive">Je veux recevoir</button>
+    </div>
+
     <div class="input-group">
-      <label for="amount">Montant envoyé (FCFA)</label>
+      <label for="amount" id="amount-label">Montant envoyé (FCFA)</label>
       <div class="input-wrapper">
         <input type="number" id="amount" value="280000">
         <span class="currency-tag">FCFA</span>
       </div>
     </div>
+
+    <p class="info-note" id="info-note">Les frais sont déduits du montant envoyé.</p>
 
     <div class="details">
       <h3>Détail de l'opération</h3>
