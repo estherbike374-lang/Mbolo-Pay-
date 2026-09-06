@@ -10,29 +10,29 @@
   <div class="card">
     <div class="header">
       <h2>Your Money</h2>
-      <p class="subtitle">Simulateur de transfert Gabon ➔ Maroc</p>
+      <p class="subtitle" id="sub-title">Simulateur Gabon ➔ Maroc</p>
     </div>
 
-    <!-- Sélecteur de pays -->
+    <!-- Sélecteur de pays cliquable -->
     <div class="country-selector">
       <div class="country-box">
-        <span class="flag">🇬🇦</span>
+        <span class="flag" id="from-flag">🇬🇦</span>
         <div class="country-info">
           <span class="label">De</span>
-          <strong>Gabon</strong>
+          <strong id="from-country">Gabon</strong>
         </div>
       </div>
-      <div class="swap-icon">⇆</div>
+      <button type="button" class="swap-icon" id="swap-btn" title="Inverser le sens">⇆</button>
       <div class="country-box">
-        <span class="flag">🇲🇦</span>
+        <span class="flag" id="to-flag">🇲🇦</span>
         <div class="country-info">
           <span class="label">Vers</span>
-          <strong>Maroc</strong>
+          <strong id="to-country">Maroc</strong>
         </div>
       </div>
     </div>
 
-    <!-- Mode d'envoi / réception -->
+    <!-- Onglets J'envoie / Je veux recevoir -->
     <div class="mode-tabs">
       <button type="button" class="tab active" id="tab-send">J'envoie</button>
       <button type="button" class="tab" id="tab-receive">Je veux recevoir</button>
@@ -42,7 +42,7 @@
       <label for="amount" id="amount-label">Montant envoyé (FCFA)</label>
       <div class="input-wrapper">
         <input type="number" id="amount" value="280000">
-        <span class="currency-tag">FCFA</span>
+        <span class="currency-tag" id="input-currency">FCFA</span>
       </div>
     </div>
 
@@ -60,12 +60,12 @@
       </div>
       <hr>
       <div class="row total">
-        <span>Montant net (FCFA)</span>
+        <span>Montant net principal</span>
         <span id="display-net">271 600 FCFA</span>
       </div>
       <div class="row total mad">
-        <span>Montant reçu (MAD)</span>
-        <span id="display-mad">4 526,67 MAD</span>
+        <span>Montant reçu dans le pays d'arrivée</span>
+        <span id="display-converted">4 526,67 MAD</span>
       </div>
     </div>
   </div>
