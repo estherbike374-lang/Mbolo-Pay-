@@ -1,6 +1,7 @@
 const amountInput = document.getElementById('amount');
 const amountLabel = document.getElementById('amount-label');
 const inputCurrency = document.getElementById('input-currency');
+const inputFlag = document.getElementById('input-flag');
 const infoNote = document.getElementById('info-note');
 const subTitle = document.getElementById('sub-title');
 
@@ -8,6 +9,10 @@ const displayAmount = document.getElementById('display-amount');
 const displayFee = document.getElementById('display-fee');
 const displayNet = document.getElementById('display-net');
 const displayConverted = document.getElementById('display-converted');
+
+const flagSend = document.getElementById('flag-send');
+const flagNet = document.getElementById('flag-net');
+const flagReceive = document.getElementById('flag-receive');
 
 const tabSend = document.getElementById('tab-send');
 const tabReceive = document.getElementById('tab-receive');
@@ -18,11 +23,11 @@ const toFlag = document.getElementById('to-flag');
 const fromCountry = document.getElementById('from-country');
 const toCountry = document.getElementById('to-country');
 
-const FEE_RATE = 0.03;       // 3% de frais
-const EXCHANGE_RATE = 60;     // 1 MAD = 60 FCFA
+const FEE_RATE = 0.03;
+const EXCHANGE_RATE = 60;
 
-let currentMode = 'send';    // 'send' ou 'receive'
-let direction = 'GA_MA';     // 'GA_MA' (Gabon->Maroc) ou 'MA_GA' (Maroc->Gabon)
+let currentMode = 'send';
+let direction = 'GA_MA';
 
 function calculate() {
   const inputVal = parseFloat(amountInput.value) || 0;
@@ -44,7 +49,6 @@ function calculate() {
     fee = sendAmount - netSendCurrency;
   }
 
-  // Conversion selon le sens du transfert
   if (direction === 'GA_MA') {
     convertedAmount = netSendCurrency / EXCHANGE_RATE;
   } else {
@@ -62,7 +66,14 @@ function calculate() {
 
 function updateUI() {
   const sendCurrency = direction === 'GA_MA' ? 'FCFA' : 'MAD';
+  const sendFlagEmoji = direction === 'GA_MA' ? '🇬🇦' : '🇲🇦';
+  const receiveFlagEmoji = direction === 'GA_MA' ? '🇲🇦' : '🇬🇦';
+
   inputCurrency.textContent = sendCurrency;
+  inputFlag.textContent = sendFlagEmoji;
+  flagSend.textContent = sendFlagEmoji;
+  flagNet.textContent = sendFlagEmoji;
+  flagReceive.textContent = receiveFlagEmoji;
 
   if (direction === 'GA_MA') {
     fromFlag.textContent = '🇬🇦';
@@ -89,17 +100,13 @@ function updateUI() {
   calculate();
 }
 
-// Inverser la direction au clic sur les flèches
 swapBtn.addEventListener('click', () => {
   direction = direction === 'GA_MA' ? 'MA_GA' : 'GA_MA';
-  
-  // Ajuster le montant par défaut lors du changement de devise
   if (direction === 'MA_GA' && amountInput.value == 280000) {
     amountInput.value = 4500;
   } else if (direction === 'GA_MA' && amountInput.value == 4500) {
     amountInput.value = 280000;
   }
-  
   updateUI();
 });
 
@@ -119,4 +126,3 @@ tabReceive.addEventListener('click', () => {
 
 amountInput.addEventListener('input', calculate);
 updateUI();
-
