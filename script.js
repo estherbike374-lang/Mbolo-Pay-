@@ -9,6 +9,7 @@ const displayAmount = document.getElementById('display-amount');
 const displayFee = document.getElementById('display-fee');
 const displayNet = document.getElementById('display-net');
 const displayConverted = document.getElementById('display-converted');
+const displayRate = document.getElementById('display-rate');
 
 const flagSend = document.getElementById('flag-send');
 const flagNet = document.getElementById('flag-net');
@@ -23,7 +24,8 @@ const toFlag = document.getElementById('to-flag');
 const fromCountry = document.getElementById('from-country');
 const toCountry = document.getElementById('to-country');
 
-const FEE_RATE = 0.03;       // Frais de 3%
+// --- C'EST ICI QU'IL FAUT LES METTRE ---
+const FEE_RATE = 0.03;       // Frais à 3%
 const EXCHANGE_RATE = 60;     // Taux : 1 DH = 60 FCFA
 
 let currentMode = 'send';
@@ -61,8 +63,6 @@ function calculate() {
   displayAmount.textContent = `${sendAmount.toLocaleString('fr-FR', { minimumFractionDigits: decimalsSend, maximumFractionDigits: decimalsSend })} ${sendCurrency}`;
   displayFee.textContent = `-${fee.toLocaleString('fr-FR', { minimumFractionDigits: decimalsSend, maximumFractionDigits: decimalsSend })} ${sendCurrency}`;
   displayNet.textContent = `${netSendCurrency.toLocaleString('fr-FR', { minimumFractionDigits: decimalsSend, maximumFractionDigits: decimalsSend })} ${sendCurrency}`;
-  
-  // Affichage en DH (Dirhams)
   displayConverted.textContent = `${convertedAmount.toLocaleString('fr-FR', { minimumFractionDigits: decimalsReceive, maximumFractionDigits: decimalsReceive })} ${receiveCurrency}`;
 }
 
@@ -83,12 +83,14 @@ function updateUI() {
     toFlag.textContent = '🇲🇦';
     toCountry.textContent = 'Maroc';
     subTitle.textContent = 'Simulateur Gabon ➔ Maroc';
+    displayRate.textContent = '1 DH = 60 FCFA';
   } else {
     fromFlag.textContent = '🇲🇦';
     fromCountry.textContent = 'Maroc';
     toFlag.textContent = '🇬🇦';
     toCountry.textContent = 'Gabon';
     subTitle.textContent = 'Simulateur Maroc ➔ Gabon';
+    displayRate.textContent = '1 DH = 60 FCFA';
   }
 
   if (currentMode === 'send') {
