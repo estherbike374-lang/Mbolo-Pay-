@@ -1,75 +1,19 @@
-/* Sélecteur de pays */
-.country-selector {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f5f5f7;
-  padding: 10px 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.country-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.country-box .flag {
-  font-size: 20px;
-}
-
-.country-info {
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-}
-
-.country-info .label {
-  color: #888;
-}
-
 .swap-icon {
   background: #e60000;
   color: white;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-}
-
-/* Onglets J'envoie / Je veux recevoir */
-.mode-tabs {
-  display: flex;
-  background: #f5f5f7;
-  padding: 4px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.tab {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  background: transparent;
-  border-radius: 8px;
-  font-weight: bold;
-  color: #666;
+  font-size: 16px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.tab.active {
-  background: white;
-  color: #e60000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.info-note {
-  font-size: 12px;
-  color: #777;
-  margin-top: 5px;
-  margin-bottom: 15px;
+.swap-icon:active {
+  transform: scale(0.9);
 }
